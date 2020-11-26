@@ -1,6 +1,7 @@
-FROM alpine:edge
+FROM alpine:3.9.6
 
-RUN apk add --no-cache mongodb
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/community' >> /etc/apk/repositories && \
+    apk add --no-cache --update mongodb mongodb-tools yaml-cpp~0.6
 
 VOLUME /data/db
 EXPOSE 27017 28017
